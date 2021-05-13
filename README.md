@@ -27,8 +27,7 @@ Can you fix that?
 1. Look through the codebase.
 1. Find an obvious violation of the Single Responsibility Principle.
 1. Fix it.
-1. Run all tests in the `src/test` directory and make sure they pass.
-1. Run `SingleResponsibilityTest` to verify that you've fixed the violation.
+1. Run all tests in the `App.Tests` directory and make sure they pass.
 
 If you need a clue as to where it is in the domain, scroll to the bottom.
 
@@ -49,8 +48,7 @@ Can you check and make sure things are setup well if want to add new things to C
 1. Look through the codebase.
 1. Find the related violation of the Open/Closed Principle.
 1. Fix it.
-1. Run all tests in the `src/test` directory and make sure they pass.
-1. Run `OpenClosedTest` to verify that you've fixed the violation.
+1. Run all tests in the `App.Tests` directory and make sure they pass.
 
 If you need a clue as to where it is in the domain, scroll to the bottom.
 
@@ -71,8 +69,7 @@ Can you fix that?
 1. Look through the codebase.
 1. Find the related violation of the Liskov Substitution Principle.
 1. Fix it.
-1. Run all tests in the `src/test` directory and make sure they pass.
-1. Run `LiskovTest` to verify that you've fixed the violation.
+1. Run all tests in the `App.Tests` directory and make sure they pass.
 
 If you need a clue as to where it is in the domain, scroll to the bottom.
 
@@ -91,8 +88,7 @@ Can you fix that so that new developers don't mistakenly add Events to TodoLists
 1. Look through the codebase.
 1. Find the related violation of the Interface Segregation Principle.
 1. Fix it.
-1. Run all tests in the `src/test` directory and make sure they pass.
-1. Run `InterfaceSegregationTest` to verify that you've fixed the violation.
+1. Run all tests in the `App.Tests` directory and make sure they pass.
 
 If you need a clue as to where it is in the domain, scroll to the bottom.
 
@@ -124,8 +120,7 @@ But it's not "wired up" yet - can you make it so that calendars can be formatted
 1. Look through the codebase.
 1. Find the related violation of the Dependency Inversion Principle.
 1. Fix it.
-1. Run all tests in the `src/test` directory and make sure they pass.
-1. Run `DependencyInversionTest` to verify that you've fixed the violation.
+1. Run all tests in the `App.Tests` directory and make sure they pass.
 
 If you need a clue as to where it is in the domain, scroll to the bottom.
 
