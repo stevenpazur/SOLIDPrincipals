@@ -1,4 +1,4 @@
-# Java OOP: SOLID Checkpoint
+# C# OOP: SOLID Checkpoint
 
 ## Background
 
