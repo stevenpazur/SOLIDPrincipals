@@ -1,13 +1,13 @@
 namespace App
 {
-    public interface ICompletable
-    {
-        string getTextToDisplay();
+  public interface ICompletable
+  {
+    string getTextToDisplay();
 
-        void markComplete();
+    void markComplete();
 
-        void markIncomplete();
+    void markIncomplete();
 
-        bool isComplete();
-    }
+    bool isComplete();
+  }
 }

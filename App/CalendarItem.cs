@@ -2,21 +2,19 @@ using System;
 
 namespace App
 {
-    public abstract class CalendarItem
+  public abstract class CalendarItem
+  {
+    public static string DATE_FORMATTER = "MMM d, yyyy h:mm tt";
+    private readonly string uuid;
+    public abstract string title { get; set; }
+    public CalendarItem()
     {
-        public static string DATE_FORMATTER = "MMM d, yyyy h:mm tt";
-        private readonly string uuid;
-        
-        public CalendarItem()
-        {
-            uuid = Guid.NewGuid().ToString();
-        }
-
-        public string getUuid()
-        {
-            return uuid;
-        }
-
-        public abstract string iCalendar();
+      uuid = Guid.NewGuid().ToString();
     }
+    public string getUuid()
+    {
+      return uuid;
+    }
+    public abstract string iCalendar();
+  }
 }
