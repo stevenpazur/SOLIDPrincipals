@@ -29,7 +29,7 @@ namespace App
 
         public List<string> descriptionsFor(DateTime date)
         {
-            return schedulables.Where(s => getLocalDateTime(s).Value == date).Select(s => s.ToString()).ToList();
+            return schedulables.Where(s => getLocalDateTime(s).Value.Date == date).Select(s => s.ToString()).ToList();
         }
 
         public DateTime? getFirstDateTime()
@@ -51,7 +51,7 @@ namespace App
             var formatter = new MonthlyFormatter();
             return formatter.format(this);
         }
-
+        //remove this 
         private DateTime? getLocalDateTime(CalendarItem item)
         {
             var isEvent = item is Event;
