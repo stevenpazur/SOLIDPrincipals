@@ -48,12 +48,12 @@ namespace App
             if (title == null) return "";
 
             return new StringBuilder()
-                .Append("BEGIN:VEVENT\n")
+                .Append("BEGIN:VHOLIDAY\n")
                 .Append($"DTSTART:{getStartsAt().ToString("yyyy-MM-ddThh:mm")}\n")
                 .Append($"DTEND:{getEndsAt().ToString("yyyy-MM-ddThh:mm")}\n")
                 .Append($"UID:{getUuid()}@example.com\n")
                 .Append($"DESCRIPTION:{getTextToDisplay()}\n")
-                .Append("END:VEVENT\n")
+                .Append("END:VHOLIDAY\n")
                 .ToString();
         }
 

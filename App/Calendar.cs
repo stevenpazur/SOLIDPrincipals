@@ -56,11 +56,11 @@ namespace App
         {
             var isEvent = item is Event;
             var isReminder = item is Reminder;
-
+            var isHoliday = item is Holiday;
             if (isEvent)
                 return ((Event) item).getStartsAt();
             if (isReminder) return ((Reminder) item).getRemindsAt();
-
+            if (isHoliday) return ((Holiday) item).getStartsAt();
             return null;
         }
     }
