@@ -1,5 +1,3 @@
-using System;
-
 namespace App
 {
     public interface ICompletable

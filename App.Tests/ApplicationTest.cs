@@ -1,7 +1,4 @@
-using System;
 using Xunit;
-using System.Collections.Generic;
-using FluentAssertions;
 
 namespace App.Tests
 {
@@ -10,7 +7,7 @@ namespace App.Tests
         [Fact]
         public void AppShouldRunWithoutError()
         {
-            string[] args = {};
+            string[] args = { };
             Program.Main(args);
         }
     }

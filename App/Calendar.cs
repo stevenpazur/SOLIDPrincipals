@@ -1,57 +1,65 @@
 using System;
-using System.Text;
-using System.Linq;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace App
 {
-    public class Calendar {
+    public class Calendar
+    {
+        //Holiday
+        private List<CalendarItem> schedulables = new();
+        //when we make a new class called holiday, we extend calendar item and we will not have to modify anything on calendar 
+        //and any other class besides holiday
 
-        private List<CalendarItem> schedulables = new List<CalendarItem>();
-
-        public void addSchedulable(CalendarItem schedulable) {
+        public void addSchedulable(CalendarItem schedulable)
+        {
             schedulables.Add(schedulable);
-            this.schedulables = schedulables.OrderBy(s => getLocalDateTime(s)).ToList();
+            schedulables = schedulables.OrderBy(s => getLocalDateTime(s)).ToList();
         }
 
-        public List<CalendarItem> items() {
+        public List<CalendarItem> items()
+        {
             return schedulables;
         }
 
-        public List<DateTime?> dates() {
+        public List<DateTime?> dates()
+        {
             return schedulables.Select(s => getLocalDateTime(s)).ToList();
         }
 
-        public List<string> descriptionsFor(DateTime date) {
-            return schedulables.Where(s => getLocalDateTime(s).Value.Date == date).Select(s => s.ToString()).ToList();
+        public List<string> descriptionsFor(DateTime date)
+        {
+            return schedulables.Where(s => getLocalDateTime(s).Value == date).Select(s => s.ToString()).ToList();
         }
 
-        public DateTime? getFirstDateTime() {
+        public DateTime? getFirstDateTime()
+        {
             if (schedulables.Count == 0) return null;
             var item = schedulables.First();
             return getLocalDateTime(item);
         }
 
-        public DateTime? getLastDateTime() {
+        public DateTime? getLastDateTime()
+        {
             if (schedulables.Count == 0) return null;
             var item = schedulables.Last();
             return getLocalDateTime(item);
         }
 
-        public String format() {
-            MonthlyFormatter formatter = new MonthlyFormatter();
+        public string format()
+        {
+            var formatter = new MonthlyFormatter();
             return formatter.format(this);
         }
 
-        private DateTime? getLocalDateTime(CalendarItem item) {
-            var isEvent = typeof(Event).IsInstanceOfType(item);
-            var isReminder = typeof(Reminder).IsInstanceOfType(item);
+        private DateTime? getLocalDateTime(CalendarItem item)
+        {
+            var isEvent = item is Event;
+            var isReminder = item is Reminder;
 
-            if (isEvent) {
-                return ((Event)item).getStartsAt();
-            } else if (isReminder) {
-                return ((Reminder)item).getRemindsAt();
-            }
+            if (isEvent)
+                return ((Event) item).getStartsAt();
+            if (isReminder) return ((Reminder) item).getRemindsAt();
 
             return null;
         }

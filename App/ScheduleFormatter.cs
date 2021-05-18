@@ -1,18 +1,19 @@
-using System;
 using System.Text;
-using System.Linq;
-using System.Collections.Generic;
 
 namespace App
 {
-    public class ScheduleFormatter {
-        public string format(Calendar calendar) {
-            StringBuilder builder = new StringBuilder();
+    public class ScheduleFormatter
+    {
+        public string format(Calendar calendar)
+        {
+            var builder = new StringBuilder();
 
-            calendar.dates().ForEach(date => {
+            calendar.dates().ForEach(date =>
+            {
                 builder.Append(date).Append("\n");
 
-                calendar.descriptionsFor(date.Value).ForEach(description => {
+                calendar.descriptionsFor(date.Value).ForEach(description =>
+                {
                     builder.Append(" - ").Append(description).Append("\n");
                 });
 

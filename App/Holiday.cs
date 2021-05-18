@@ -1,16 +1,16 @@
-using System;
+﻿using System;
 using System.Text;
 
 namespace App
 {
-    public class Event : CalendarItem 
+    public class Holiday : CalendarItem
     {
         private readonly TimeSpan duration;
         private readonly DateTime startsAt;
 
         private readonly string title;
 
-        public Event(string title, DateTime startsAt, TimeSpan duration)
+        public Holiday(string title, DateTime startsAt, TimeSpan duration)
         {
             this.title = title;
             this.startsAt = startsAt;

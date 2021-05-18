@@ -4,11 +4,13 @@ namespace App
     {
         private string description;
 
-        public void setDescription(string description) {
+        public void setDescription(string description)
+        {
             this.description = description;
         }
 
-        public string getDescription() {
+        public string getDescription()
+        {
             return description;
         }
     }
