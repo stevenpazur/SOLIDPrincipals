@@ -13,7 +13,7 @@ namespace App.Tests
                     "Buy birthday hats",
                     new DateTime(2028, 6, 7, 6, 9, 0));
 
-            Todo todo1 = new Todo("Do stuff", "Alex", "Hamilton", "alex@example.com", "Treasurer");
+            Todo todo1 = new Todo("Do stuff", new Owner("Alex", "Hamilton", "alex@example.com", "Treasurer"));
 
             TodoList todoList = new TodoList();
 

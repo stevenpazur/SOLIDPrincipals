@@ -6,20 +6,13 @@ namespace App
     public class Todo : CalendarItem {
 
         private string text;
-        private string description;
         private TodoStatus status = TodoStatus.INCOMPLETE;
         private DateTime? completedAt;
-        private string ownerFirstName;
-        private string ownerLastName;
-        private string ownerEmail;
-        private string ownerJobTitle;
+        private Owner owner;
 
-        public Todo(string text, string ownerFirstName, string ownerLastName, string ownerEmail, string ownerJobTitle) {
+        public Todo(string text, Owner owner) {
             this.text = text;
-            this.ownerFirstName = ownerFirstName;
-            this.ownerLastName = ownerLastName;
-            this.ownerEmail = ownerEmail;
-            this.ownerJobTitle = ownerJobTitle;
+            this.owner = owner;
         }
 
         public string getText() {
@@ -28,14 +21,6 @@ namespace App
 
         public override string getTextToDisplay() {
             return getText();
-        }
-
-        public void setDescription(string description) {
-            this.description = description;
-        }
-
-        public string getDescription() {
-            return description;
         }
 
         public override void markComplete() {
@@ -57,19 +42,19 @@ namespace App
         }
 
         public string getOwnerFirstName() {
-            return ownerFirstName;
+            return owner.FirstName;
         }
 
         public string getOwnerLastName() {
-            return ownerLastName;
+            return owner.LastName;
         }
 
         public string getOwnerJobTitle() {
-            return ownerJobTitle;
+            return owner.JobTitle;
         }
 
         public string getOwnerEmail() {
-            return ownerEmail;
+            return owner.Email;
         }
 
         public override string iCalendar() {

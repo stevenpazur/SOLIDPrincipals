@@ -9,7 +9,7 @@ namespace App.Tests
     {
         [Fact]
         public void testICalendar() {
-            Todo todo1 = new Todo("Do stuff", "Alex", "Hamilton", "alex@example.com", "Treasurer");
+            Todo todo1 = new Todo("Do stuff", new Owner("Alex", "Hamilton", "alex@example.com", "Treasurer"));
 
             String expected = "BEGIN:VTODO\n" +
                     "COMPLETED::\n" +
@@ -22,7 +22,7 @@ namespace App.Tests
 
         [Fact]
         public void toStringWorks() {
-            Todo todo1 = new Todo("Do stuff", "Alex", "Hamilton", "alex@example.com", "Treasurer");
+            Todo todo1 = new Todo("Do stuff", new Owner("Alex", "Hamilton", "alex@example.com", "Treasurer"));
 
             todo1.ToString().Should().Be("Do stuff <Alex Hamilton> alex@example.com (Treasurer): incomplete");
 
@@ -31,11 +31,6 @@ namespace App.Tests
             todo1.ToString().Should().Be("Do stuff <Alex Hamilton> alex@example.com (Treasurer): complete");
         }
 
-        [Fact]
-        public void itHasADescription() {
-            Todo todo1 = new Todo("Do stuff", "Alex", "Hamilton", "alex@example.com", "Treasurer");
-            todo1.setDescription("There's a million things he hasn't done");
-            todo1.getDescription().Should().Be("There's a million things he hasn't done");
-        }
+        
     }
 }

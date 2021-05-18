@@ -13,7 +13,7 @@ namespace App
             Event event3 = new Event("Event 3", new DateTime(2017, 1, 12, 5, 5, 0), defaultDuration);
             Reminder reminder1 = new Reminder("Reminder 1", new DateTime(2017, 3, 17, 4, 4, 1));
             reminder1.markComplete();
-            Todo todo1 = new Todo("Do stuff", "Alex", "Hamilton", "alex@example.com", "Treasurer");
+            Todo todo1 = new Todo("Do stuff", new Owner("Alex", "Hamilton", "alex@example.com", "Treasurer"));
 
             MonthlyFormatter monthlyFormatter = new MonthlyFormatter();
             ScheduleFormatter scheduleFormatter = new ScheduleFormatter();
@@ -42,6 +42,10 @@ namespace App
             List<CalendarItem> items = new List<CalendarItem>{event1, event2, todo1, reminder1, event3};
             ExportService exporter = new ExportService();
             Console.WriteLine(exporter.export(items));
+
+            Console.WriteLine("----------------\nName:\n-------------------");
+
+            Console.WriteLine($"{todo1.getOwnerFirstName()} {todo1.getOwnerLastName()}");
         }
     }
 }
