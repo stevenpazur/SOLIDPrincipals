@@ -2,11 +2,6 @@ namespace App
 {
     public class Owner
     {
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
-        public string Email { get; set; }
-        public string JobTitle { get; set; }
-
         public Owner(string firstName, string lastName, string email, string jobTitle)
         {
             FirstName = firstName;
@@ -14,6 +9,11 @@ namespace App
             Email = email;
             JobTitle = jobTitle;
         }
+
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+        public string Email { get; set; }
+        public string JobTitle { get; set; }
 
         public void ChangeFirstName(string firstName)
         {
@@ -25,19 +25,23 @@ namespace App
             LastName = lastName;
         }
 
-        public string getOwnerFirstName() {
+        public string getOwnerFirstName()
+        {
             return FirstName;
         }
 
-        public string getOwnerLastName() {
+        public string getOwnerLastName()
+        {
             return LastName;
         }
 
-        public string getOwnerJobTitle() {
+        public string getOwnerJobTitle()
+        {
             return JobTitle;
         }
 
-        public string getOwnerEmail() {
+        public string getOwnerEmail()
+        {
             return Email;
         }
     }

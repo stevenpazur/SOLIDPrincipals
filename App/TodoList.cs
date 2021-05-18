@@ -1,47 +1,53 @@
-using System;
-using System.Text;
-using System.Linq;
 using System.Collections.Generic;
+using System.Linq;
+using System.Text;
 
 namespace App
 {
-    public class TodoList {
+    public class TodoList
+    {
+        private readonly List<ICompletable> completables = new();
 
-        private List<ICompletable> completables = new List<ICompletable>();
-
-        public void add(ICompletable completable) {
+        public void add(ICompletable completable)
+        {
             completables.Add(completable);
         }
 
-        public List<ICompletable> all() {
+        public List<ICompletable> all()
+        {
             return completables;
         }
 
-        public List<ICompletable> completed() {
+        public List<ICompletable> completed()
+        {
             return completables.Where(c => c.isComplete()).ToList();
         }
 
-        public List<ICompletable> uncompleted() {
+        public List<ICompletable> uncompleted()
+        {
             return completables.Where(c => !c.isComplete()).ToList();
         }
 
-        public void completeAll() {
+        public void completeAll()
+        {
             completables.ForEach(c => c.markComplete());
         }
 
-        public void uncompleteAll() {
+        public void uncompleteAll()
+        {
             completables.ForEach(c => c.markIncomplete());
         }
 
-        public override string ToString() {
-            StringBuilder builder = new StringBuilder();
+        public override string ToString()
+        {
+            var builder = new StringBuilder();
 
-            completables.ForEach(completable => {
-                if (completable.isComplete()) {
+            completables.ForEach(completable =>
+            {
+                if (completable.isComplete())
                     builder.Append("√ ");
-                } else {
+                else
                     builder.Append("□ ");
-                }
 
                 builder.Append(completable.getTextToDisplay()).Append("\n");
             });

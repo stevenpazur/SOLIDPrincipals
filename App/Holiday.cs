@@ -1,16 +1,16 @@
-using System;
+﻿using System;
 using System.Text;
 
 namespace App
 {
-    public class Event : CalendarItem 
+    public class Holiday : CalendarItem
     {
         private readonly TimeSpan duration;
         private readonly DateTime startsAt;
 
         private readonly string title;
 
-        public Event(string title, DateTime startsAt, TimeSpan duration)
+        public Holiday(string title, DateTime startsAt, TimeSpan duration)
         {
             this.title = title;
             this.startsAt = startsAt;
@@ -48,12 +48,12 @@ namespace App
             if (title == null) return "";
 
             return new StringBuilder()
-                .Append("BEGIN:VEVENT\n")
+                .Append("BEGIN:VHOLIDAY\n")
                 .Append($"DTSTART:{getStartsAt().ToString("yyyy-MM-ddThh:mm")}\n")
                 .Append($"DTEND:{getEndsAt().ToString("yyyy-MM-ddThh:mm")}\n")
                 .Append($"UID:{getUuid()}@example.com\n")
                 .Append($"DESCRIPTION:{getTextToDisplay()}\n")
-                .Append("END:VEVENT\n")
+                .Append("END:VHOLIDAY\n")
                 .ToString();
         }
 

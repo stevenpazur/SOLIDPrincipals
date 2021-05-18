@@ -1,5 +1,5 @@
-using Xunit;
 using FluentAssertions;
+using Xunit;
 
 namespace App.Tests
 {
@@ -17,24 +17,25 @@ namespace App.Tests
         }
 
         [Fact]
-        public void TestCase2(){
+        public void TestCase2()
+        {
             var owner = new Owner("Alex", "Trebek", "alex@alex.com", "Host");
 
             var todo1 = new Todo("Do stuff", owner);
             var todo2 = new Todo("Do more stuff", owner);
 
-            todo1.GetOwner().FirstName.Should().Be("Alex");
-            todo2.GetOwner().FirstName.Should().Be("Alex");
-            todo1.GetOwner().LastName.Should().Be("Trebek");
-            todo2.GetOwner().LastName.Should().Be("Trebek");
+            todo1.getOwner().FirstName.Should().Be("Alex");
+            todo2.getOwner().FirstName.Should().Be("Alex");
+            todo1.getOwner().LastName.Should().Be("Trebek");
+            todo2.getOwner().LastName.Should().Be("Trebek");
 
             owner.ChangeFirstName("Gday");
             owner.ChangeLastName("Mate");
 
-            todo1.GetOwner().FirstName.Should().Be("Gday");
-            todo2.GetOwner().FirstName.Should().Be("Gday");
-            todo1.GetOwner().LastName.Should().Be("Mate");
-            todo2.GetOwner().LastName.Should().Be("Mate");
+            todo1.getOwner().FirstName.Should().Be("Gday");
+            todo2.getOwner().FirstName.Should().Be("Gday");
+            todo1.getOwner().LastName.Should().Be("Mate");
+            todo2.getOwner().LastName.Should().Be("Mate");
         }
     }
 }
