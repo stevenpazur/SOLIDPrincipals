@@ -24,5 +24,21 @@ namespace App
         {
             LastName = lastName;
         }
+
+        public string getOwnerFirstName() {
+            return FirstName;
+        }
+
+        public string getOwnerLastName() {
+            return LastName;
+        }
+
+        public string getOwnerJobTitle() {
+            return JobTitle;
+        }
+
+        public string getOwnerEmail() {
+            return Email;
+        }
     }
 }

@@ -3,61 +3,75 @@ using System.Text;
 
 namespace App
 {
-    public class Todo : CalendarItem {
+    public class Todo : CalendarItem
+    {
 
         private string text;
         private TodoStatus status = TodoStatus.INCOMPLETE;
         private DateTime? completedAt;
         private Owner owner;
 
-        public Todo(string text, Owner owner) {
+        public Todo(string text, Owner owner)
+        {
             this.text = text;
             this.owner = owner;
         }
 
-        public string getText() {
+        public string getText()
+        {
             return text;
         }
 
-        public override string getTextToDisplay() {
+        public override string getTextToDisplay()
+        {
             return getText();
         }
 
-        public override void markComplete() {
+        public override void markComplete()
+        {
             status = TodoStatus.COMPLETE;
             completedAt = DateTime.Now;
         }
 
-        public override void markIncomplete() {
+        public override void markIncomplete()
+        {
             status = TodoStatus.INCOMPLETE;
             completedAt = null;
         }
 
-        public override bool isComplete() {
+        public override bool isComplete()
+        {
             return status == TodoStatus.COMPLETE;
         }
 
-        public DateTime? getCompletedAt() {
+        public DateTime? getCompletedAt()
+        {
             return completedAt;
         }
 
-        public string getOwnerFirstName() {
-            return owner.FirstName;
+        // public string getOwnerFirstName() {
+        //     return owner.FirstName;
+        // }
+
+        // public string getOwnerLastName() {
+        //     return owner.LastName;
+        // }
+
+        // public string getOwnerJobTitle() {
+        //     return owner.JobTitle;
+        // }
+
+        // public string getOwnerEmail() {
+        //     return owner.Email;
+        // }
+
+        public Owner GetOwner()
+        {
+            return owner;
         }
 
-        public string getOwnerLastName() {
-            return owner.LastName;
-        }
-
-        public string getOwnerJobTitle() {
-            return owner.JobTitle;
-        }
-
-        public string getOwnerEmail() {
-            return owner.Email;
-        }
-
-        public override string iCalendar() {
+        public override string iCalendar()
+        {
             if (text == null) throw new ArgumentException("You must specify the text");
 
             return new StringBuilder()
@@ -69,12 +83,13 @@ namespace App
                     .ToString();
         }
 
-        public override string ToString() {
+        public override string ToString()
+        {
             var a = getText();
-            var b = getOwnerFirstName();
-            var c = getOwnerLastName();
-            var d = getOwnerEmail();
-            var e = getOwnerJobTitle();
+            var b = owner.getOwnerFirstName();
+            var c = owner.getOwnerLastName();
+            var d = owner.getOwnerEmail();
+            var e = owner.getOwnerJobTitle();
             var f = status == TodoStatus.INCOMPLETE ? "incomplete" : "complete";
 
             return $"{a} <{b} {c}> {d} ({e}): {f}";
