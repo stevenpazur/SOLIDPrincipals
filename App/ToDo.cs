@@ -20,11 +20,7 @@ namespace App
     {
       return title;
     }
-
-    public string getTextToDisplay()
-    {
-      return getTitle();
-    }
+    
 
     public void markComplete()
     {
@@ -61,7 +57,7 @@ namespace App
         .Append("BEGIN:VTODO\n")
         .Append($"COMPLETED::{getCompletedAt()}\n")
         .Append($"UID:{getUuid()}@example.com\n")
-        .Append($"SUMMARY:{getTextToDisplay()}\n")
+        .Append($"SUMMARY:{getTitle()}\n")
         .Append("END:VTODO\n")
         .ToString();
     }

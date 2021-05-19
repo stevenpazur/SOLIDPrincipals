@@ -2,7 +2,7 @@ namespace App
 {
   public interface ICompletable
   {
-    string getTextToDisplay();
+    string getTitle();
 
     void markComplete();
 

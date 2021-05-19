@@ -19,12 +19,6 @@ namespace App
     {
       return title;
     }
-
-    public string getTextToDisplay()
-    {
-      return getTitle();
-    }
-
     public DateTime getRemindsAt()
     {
       return remindsAt;
@@ -54,7 +48,7 @@ namespace App
           .Append($"TRIGGER:-{getRemindsAt().ToString("yyyy-MM-ddThh:mm")}\n")
           .Append("ACTION:DISPLAY\n")
           .Append($"UID:{getUuid()}@example.com\n")
-          .Append($"DESCRIPTION:{getTextToDisplay()}\n")
+          .Append($"DESCRIPTION:{getTitle()}\n")
           .Append("END:VALARM\n")
           .ToString();
     }

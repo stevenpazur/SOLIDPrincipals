@@ -3,7 +3,7 @@ using System.Text;
 
 namespace App
 {
-  public class Event : CalendarItem
+  public class Event : CalendarItem, ICalendarMinimum
   {
     private readonly TimeSpan duration;
     private readonly DateTime startsAt;
@@ -19,12 +19,6 @@ namespace App
     {
       return title;
     }
-
-    public string getTextToDisplay()
-    {
-      return getTitle();
-    }
-
     public DateTime getStartsAt()
     {
       return startsAt;
@@ -49,7 +43,7 @@ namespace App
           .Append($"DTSTART:{getStartsAt().ToString("yyyy-MM-ddThh:mm")}\n")
           .Append($"DTEND:{getEndsAt().ToString("yyyy-MM-ddThh:mm")}\n")
           .Append($"UID:{getUuid()}@example.com\n")
-          .Append($"DESCRIPTION:{getTextToDisplay()}\n")
+          .Append($"DESCRIPTION:{getTitle()}\n")
           .Append("END:VEVENT\n")
           .ToString();
     }
