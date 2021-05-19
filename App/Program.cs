@@ -30,7 +30,7 @@ namespace App
             calendar.addSchedulable(reminder1);
             calendar.addSchedulable(event3);
             calendar.addSchedulable(event4);
-            var dr = new MasterFormatterDr();
+            var dr = new FormatterEntity();
             dr.Formatter = new MonthlyFormatter();
             
 

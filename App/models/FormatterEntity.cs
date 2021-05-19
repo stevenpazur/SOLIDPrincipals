@@ -2,12 +2,9 @@
 
 namespace App
 {
-    public class MasterFormatterDr
+    public class FormatterEntity
     {
         public IFormatter Formatter { get; set; }
-        public MasterFormatterDr()
-        {
-        }
 
         public string format(Calendar calendar)
         {

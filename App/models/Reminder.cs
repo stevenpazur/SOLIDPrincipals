@@ -7,7 +7,6 @@ namespace App
     {
         private bool complete;
         private readonly DateTime remindsAt;
-        //TODO change title to Description
         public string description { get; set; }
 
         public Reminder(string description, DateTime remindsAt)
@@ -16,7 +15,7 @@ namespace App
             this.remindsAt = remindsAt;
         }
 
-        public string getTitle()
+        public string TextToDisplay()
         {
             return description;
         }
@@ -49,7 +48,7 @@ namespace App
                 .Append($"TRIGGER:-{getStartsAt().ToString("yyyy-MM-ddThh:mm")}\n")
                 .Append("ACTION:DISPLAY\n")
                 .Append($"UID:{getUuid()}@example.com\n")
-                .Append($"DESCRIPTION:{getTitle()}\n")
+                .Append($"DESCRIPTION:{TextToDisplay()}\n")
                 .Append("END:VALARM\n")
                 .ToString();
         }
@@ -58,7 +57,7 @@ namespace App
         {
             var isC = isComplete() ? "complete" : "incomplete";
             var remind = getStartsAt().ToString(DATE_FORMATTER);
-            return $"{getTitle()} at {remind} ({isC})";
+            return $"{TextToDisplay()} at {remind} ({isC})";
         }
     }
 }

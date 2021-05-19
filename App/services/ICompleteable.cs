@@ -3,7 +3,7 @@ namespace App
     public interface ICompletable
     {
         //change back to TextToDisplay
-        string getTitle();
+        string TextToDisplay();
 
         void markComplete();
 

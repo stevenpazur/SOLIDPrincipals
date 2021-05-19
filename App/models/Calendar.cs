@@ -7,9 +7,6 @@ namespace App.models
     public class Calendar
     {
         private List<IGetStartsAt> schedulables = new();
-        //when we make a new class called holiday, we extend calendar item and we 
-        // will not have to modify anything on calendar and any other class 
-        // besides holiday
 
         public void addSchedulable(IGetStartsAt schedulable)
         {

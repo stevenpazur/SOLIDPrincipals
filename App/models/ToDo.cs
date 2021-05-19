@@ -8,18 +8,23 @@ namespace App
         private DateTime? completedAt;
         private readonly Owner owner;
         private TodoStatus status = TodoStatus.INCOMPLETE;
-        //Had a description
-        public string title { get; set; }
+        public string text { get; set; }
+        public string description { get; set; }
 
-        public Todo(string title, Owner owner)
+        public Todo(string text, Owner owner)
         {
-            this.title = title;
+            this.text = text;
             this.owner = owner;
         }
 
         public string getTitle()
         {
-            return title;
+            return text;
+        }
+
+        public string TextToDisplay()
+        {
+            return text;
         }
 
         public void markComplete()
@@ -51,20 +56,20 @@ namespace App
 
         public override string iCalendar()
         {
-            if (title == null) return null;
+            if (text == null) return "";
 
             return new StringBuilder()
               .Append("BEGIN:VTODO\n")
               .Append($"COMPLETED::{getCompletedAt()}\n")
               .Append($"UID:{getUuid()}@example.com\n")
-              .Append($"SUMMARY:{getTitle()}\n")
+              .Append($"SUMMARY:{this.text}\n")
               .Append("END:VTODO\n")
               .ToString();
         }
 
         public override string ToString()
         {
-            var a = getTitle();
+            var a = this.text;
             var b = owner.getOwnerFirstName();
             var c = owner.getOwnerLastName();
             var d = owner.getOwnerEmail();
@@ -73,6 +78,5 @@ namespace App
 
             return $"{a} <{b} {c}> {d} ({e}): {f}";
         }
-        
     }
 }

@@ -49,7 +49,7 @@ namespace App
         else
           builder.Append("□ ");
 
-        builder.Append(completable.getTitle()).Append("\n");
+        builder.Append(completable.TextToDisplay()).Append("\n");
       });
 
       return builder.ToString();

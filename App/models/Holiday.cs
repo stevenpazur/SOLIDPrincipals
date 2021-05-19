@@ -15,8 +15,7 @@ namespace App
             this.duration = duration;
         }
         public DateTime EndsAt => startsAt + duration;
-
-
+        
         public string getTitle()
         {
             return title;
