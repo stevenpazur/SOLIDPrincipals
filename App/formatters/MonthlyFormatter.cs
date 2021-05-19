@@ -12,10 +12,10 @@ namespace App
         {
             if (calendar.getFirstDateTime() == null) return "";
 
-            var date1 = calendar.getFirstDateTime().Value;
+            var date1 = calendar.getFirstDateTime();
             var startMonth = new DateTime(date1.Year, date1.Month, 1);
 
-            var date2 = calendar.getLastDateTime().Value;
+            var date2 = calendar.getLastDateTime();
             var endMonth = new DateTime(
               date2.Year,
               date2.Month,

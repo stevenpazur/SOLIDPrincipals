@@ -33,17 +33,13 @@ namespace App.models
               .Where(s => getLocalDateTime(s).Date == date)
               .Select(s => s.ToString()).ToList();
         }
-        //Do not make this nullable and dont return null from methods
-        public DateTime? getFirstDateTime()
+        public DateTime getFirstDateTime()
         {
-            if (schedulables.Count == 0) return null;
             IGetStartsAt item = schedulables.First();
             return getLocalDateTime(item);
         }
-        //Do not make this nullable and dont return null from methods
-        public DateTime? getLastDateTime()
+        public DateTime getLastDateTime()
         {
-            if (schedulables.Count == 0) return null;
             var item = schedulables.Last();
             return getLocalDateTime(item);
         }
