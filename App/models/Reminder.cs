@@ -3,7 +3,7 @@ using System.Text;
 
 namespace App
 {
-    public class Reminder : CalendarItem, ICompletable
+    public class Reminder : CalendarItem, ICompletable, IGetStartsAt
     {
         private bool complete;
         private readonly DateTime remindsAt;
@@ -19,7 +19,7 @@ namespace App
         {
             return title;
         }
-        public override DateTime getStartsAt()
+        public DateTime getStartsAt()
         {
             return remindsAt;
         }

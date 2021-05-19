@@ -16,7 +16,6 @@ namespace App
             return uuid;
         }
         public abstract string iCalendar();
-
-        public abstract DateTime getStartsAt();
+        
     }
 }

@@ -72,10 +72,6 @@ namespace App
 
             return $"{a} <{b} {c}> {d} ({e}): {f}";
         }
-
-        public override DateTime getStartsAt()
-        {
-            return getStartsAt();
-        }
+        
     }
 }

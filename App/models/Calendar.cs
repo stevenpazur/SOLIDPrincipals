@@ -2,22 +2,22 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace App
+namespace App.models
 {
     public class Calendar
     {
-        private List<CalendarItem> schedulables = new();
+        private List<IGetStartsAt> schedulables = new();
         //when we make a new class called holiday, we extend calendar item and we 
         // will not have to modify anything on calendar and any other class 
         // besides holiday
 
-        public void addSchedulable(CalendarItem schedulable)
+        public void addSchedulable(IGetStartsAt schedulable)
         {
             schedulables.Add(schedulable);
             schedulables = schedulables.OrderBy(s => getLocalDateTime(s)).ToList();
         }
 
-        public List<CalendarItem> items()
+        public List<IGetStartsAt> items()
         {
             return schedulables;
         }
@@ -38,7 +38,7 @@ namespace App
         public DateTime? getFirstDateTime()
         {
             if (schedulables.Count == 0) return null;
-            var item = schedulables.First();
+            IGetStartsAt item = schedulables.First();
             return getLocalDateTime(item);
         }
 
@@ -57,9 +57,10 @@ namespace App
 
         //TODO: Should refactor this so that users do not need to add to this
         // every time a new class is created (OCP)
-        private DateTime? getLocalDateTime(CalendarItem item)
+        private DateTime? getLocalDateTime(IGetStartsAt item)
         {
             return item.getStartsAt();
         }
+        
     }
 }

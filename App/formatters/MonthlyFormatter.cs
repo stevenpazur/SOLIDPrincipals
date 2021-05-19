@@ -2,10 +2,11 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using App.models;
 
 namespace App
 {
-    public class MonthlyFormatter
+    public class MonthlyFormatter : IFormatter
     {
         public string format(Calendar calendar)
         {
@@ -42,7 +43,7 @@ namespace App
                 {
                     builder.Append(date.Day);
 
-                    if (calendar.descriptionsFor(date).Count() > 0) builder.Append("*");
+                    if (calendar.descriptionsFor(date).Any()) builder.Append("*");
 
                     builder.Append(" ");
                 }

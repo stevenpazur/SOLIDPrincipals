@@ -3,7 +3,7 @@ using System.Text;
 
 namespace App
 {
-    public class Event : CalendarItem, ICalendarMinimum
+    public class Event : CalendarItem, ICalendarMinimum, IGetStartsAt
     {
         private readonly TimeSpan duration;
         private readonly DateTime startsAt;
@@ -19,7 +19,7 @@ namespace App
         {
             return title;
         }
-        public override DateTime getStartsAt()
+        public DateTime getStartsAt()
         {
             return startsAt;
         }

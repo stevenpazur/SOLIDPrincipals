@@ -1,8 +1,9 @@
 using System.Text;
+using App.models;
 
 namespace App
 {
-    public class ScheduleFormatter
+    public class ScheduleFormatter : IFormatter
     {
         public string format(Calendar calendar)
         {
@@ -12,8 +13,9 @@ namespace App
             {
                 builder.Append(date).Append("\n");
 
-                calendar.descriptionsFor(date.Value).ForEach(description =>
-                {
+                if (date != null)
+                    calendar.descriptionsFor(date.Value).ForEach(description =>
+                    {
                         builder.Append(" - ").Append(description).Append("\n");
                     });
 
