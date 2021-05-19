@@ -7,7 +7,7 @@ namespace App
     {
         private readonly TimeSpan duration;
         private readonly DateTime startsAt;
-        public override string title { get; set; }
+        public string title { get; set; }
         public Holiday(string title, DateTime startsAt, TimeSpan duration)
         {
             this.title = title;

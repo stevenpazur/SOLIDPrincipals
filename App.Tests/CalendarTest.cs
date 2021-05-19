@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using App.models;
 using FluentAssertions;
 using Xunit;
 

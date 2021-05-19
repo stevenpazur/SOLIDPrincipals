@@ -6,7 +6,6 @@ namespace App
     {
         public static string DATE_FORMATTER = "MMM d, yyyy h:mm tt";
         private readonly string uuid;
-        public abstract string title { get; set; }
         public CalendarItem()
         {
             uuid = Guid.NewGuid().ToString();

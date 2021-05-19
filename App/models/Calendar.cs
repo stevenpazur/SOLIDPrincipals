@@ -50,8 +50,6 @@ namespace App.models
             return formatter.format(this);
         }
 
-        //TODO: Should refactor this so that users do not need to add to this
-        // every time a new class is created (OCP)
         private DateTime getLocalDateTime(IGetStartsAt item)
         {
             return item.getStartsAt();

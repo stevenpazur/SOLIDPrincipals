@@ -8,17 +8,17 @@ namespace App
         private bool complete;
         private readonly DateTime remindsAt;
         //TODO change title to Description
-        public override string title { get; set; }
+        public string description { get; set; }
 
-        public Reminder(string title, DateTime remindsAt)
+        public Reminder(string description, DateTime remindsAt)
         {
-            this.title = title;
+            this.description = description;
             this.remindsAt = remindsAt;
         }
 
         public string getTitle()
         {
-            return title;
+            return description;
         }
         public DateTime getStartsAt()
         {
@@ -42,7 +42,7 @@ namespace App
 
         public override string iCalendar()
         {
-            if (title == null) return "";
+            if (description == null) return "";
 
             return new StringBuilder()
                 .Append("BEGIN:VALARM\n")
