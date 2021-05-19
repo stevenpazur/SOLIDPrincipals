@@ -45,7 +45,7 @@ namespace App.Tests
         }
 
         [Fact]
-        public void TestName()
+        public void itShouldPopulateList()
         {
             //Given
             var owner = new Owner("Jack", "Sparrow", "jack@jack.net", "pirate");
