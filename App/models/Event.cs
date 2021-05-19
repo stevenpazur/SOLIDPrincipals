@@ -7,6 +7,7 @@ namespace App
     {
         private readonly TimeSpan duration;
         private readonly DateTime startsAt;
+        //had a title from origin code
         public override string title { get; set; }
         public Event(string title, DateTime startsAt, TimeSpan duration)
         {

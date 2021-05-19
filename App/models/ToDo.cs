@@ -8,6 +8,7 @@ namespace App
         private DateTime? completedAt;
         private readonly Owner owner;
         private TodoStatus status = TodoStatus.INCOMPLETE;
+        //Had a description
         public override string title { get; set; }
 
         public Todo(string title, Owner owner)

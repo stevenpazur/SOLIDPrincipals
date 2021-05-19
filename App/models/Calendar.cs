@@ -21,8 +21,7 @@ namespace App.models
         {
             return schedulables;
         }
-
-        public List<DateTime?> dates()
+        public List<DateTime> dates()
         {
             return schedulables
               .Select(s => getLocalDateTime(s)).ToList();
@@ -31,17 +30,17 @@ namespace App.models
         public List<string> descriptionsFor(DateTime date)
         {
             return schedulables
-              .Where(s => getLocalDateTime(s).Value.Date == date)
+              .Where(s => getLocalDateTime(s).Date == date)
               .Select(s => s.ToString()).ToList();
         }
-
+        //Do not make this nullable and dont return null from methods
         public DateTime? getFirstDateTime()
         {
             if (schedulables.Count == 0) return null;
             IGetStartsAt item = schedulables.First();
             return getLocalDateTime(item);
         }
-
+        //Do not make this nullable and dont return null from methods
         public DateTime? getLastDateTime()
         {
             if (schedulables.Count == 0) return null;
@@ -57,7 +56,7 @@ namespace App.models
 
         //TODO: Should refactor this so that users do not need to add to this
         // every time a new class is created (OCP)
-        private DateTime? getLocalDateTime(IGetStartsAt item)
+        private DateTime getLocalDateTime(IGetStartsAt item)
         {
             return item.getStartsAt();
         }

@@ -4,14 +4,14 @@ namespace App
 {
     public class MasterFormatterDr
     {
-        public IFormatter _Formatter;
+        public IFormatter Formatter { get; set; }
         public MasterFormatterDr()
         {
         }
 
         public string format(Calendar calendar)
         {
-            return _Formatter.format(calendar);
+            return Formatter.format(calendar);
         }
     }
 }

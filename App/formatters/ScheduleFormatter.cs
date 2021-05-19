@@ -13,11 +13,10 @@ namespace App
             {
                 builder.Append(date).Append("\n");
 
-                if (date != null)
-                    calendar.descriptionsFor(date.Value).ForEach(description =>
-                    {
-                        builder.Append(" - ").Append(description).Append("\n");
-                    });
+                calendar.descriptionsFor(date).ForEach(description =>
+                {
+                    builder.Append(" - ").Append(description).Append("\n");
+                });
 
                 builder.Append("\n");
             });

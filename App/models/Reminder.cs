@@ -7,6 +7,7 @@ namespace App
     {
         private bool complete;
         private readonly DateTime remindsAt;
+        //TODO change title to Description
         public override string title { get; set; }
 
         public Reminder(string title, DateTime remindsAt)
